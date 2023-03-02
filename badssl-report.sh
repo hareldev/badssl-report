@@ -13,7 +13,7 @@ function run_tests(){
     echo "type status-code result"
     for certificateType in "${!ssl_urls[@]}"; do 
         # running curl
-        url_response=$(curl -s -I --head --fail "${ssl_urls[$certificateType]}" 2>/dev/null -w "%{http_code}\n" | tail -n 1);
+        url_response=$(curl -s -I --head --fail --tlsv1 "${ssl_urls[$certificateType]}" 2>/dev/null -w "%{http_code}\n" | tail -n 1);
         status=$([ "$url_response" == "200" ] && echo "GOOD" || echo "BAD")
         echo "$certificateType $url_response $status";  
     done
