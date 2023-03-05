@@ -1,4 +1,4 @@
-# BadSSL.com Report :lock:
+# BadSSL.com Certificate Report :lock:
 
 ## Motivation
 [BadSSL](https://badssl.com/) contains many addresses with unique certificates, to test your system / browser, and make sure some of the weak certificates will be blocked.
