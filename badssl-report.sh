@@ -1,21 +1,32 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd )"
+
 function run_tests(){
-    declare -A ssl_urls
-    ssl_urls=( ["sha256"]="https://sha256.badssl.com"
-            ["tls-v1-1"]="https://tls-v1-1.badssl.com:1011"
-            ["cbc"]="https://cbc.badssl.com/"
-            ["rc4-md5"]="https://rc4-md5.badssl.com/"
-            ["rc4"]="https://rc4.badssl.com/"
-            ["3des"]="https://3des.badssl.com"
-            ["null"]="https://null.badssl.com/")
+    json_file="badssl-endpoints.json"
+    json_file_alternative_url="https://raw.githubusercontent.com/hareldev/badssl-report/main/badssl-endpoints.json"
+    if [[ -f "$json_file" ]]; then
+        file_content=$(cat $json_file)
+    else
+        file_content=$(curl -sSL --fail "${json_file_alternative_url}")
+    fi
 
     echo "type status-code result"
-    for certificateType in "${!ssl_urls[@]}"; do 
-        # running curl
-        url_response=$(curl -s -I --head --fail --tlsv1 "${ssl_urls[$certificateType]}" 2>/dev/null -w "%{http_code}\n" | tail -n 1);
+    for row in $(echo "$file_content" | jq -r '.[] | @base64'); do
+        _jq() {
+        echo "${row}" | base64 --decode | jq -r "${1}"
+        }
+        
+        # OPTIONAL
+        # Set each property of the row to a variable
+        url=$(_jq '.url')
+        base_name=$(_jq '.base_name')
+        description=$(_jq '.description') # for future use
+
+        # Utilize your variables
+        url_response=$(curl -s -I --head --fail --tlsv1 "${url}" 2>/dev/null -w "%{http_code}\n" | tail -n 1);
         status=$([ "$url_response" == "200" ] && echo "GOOD" || echo "BAD")
-        echo "$certificateType $url_response $status";  
+        echo "$base_name $url_response $status";  
     done
 }
 

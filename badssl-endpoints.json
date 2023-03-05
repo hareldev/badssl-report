@@ -1,0 +1,142 @@
+[
+      {
+        "url": "https://expired.badssl.com",
+        "base_name": "expired",
+        "description": "Certificate expired"
+      },
+      {
+        "url": "https://wrong.host.badssl.com",
+        "base_name": "wrong.host",
+        "description": "Certificate is valid but the hostname doesn't match"
+      },
+      {
+        "url": "https://self-signed.badssl.com",
+        "base_name": "self-signed",
+        "description": "Certificate is self-signed"
+      },
+      {
+        "url": "https://untrusted-root.badssl.com",
+        "base_name": "untrusted-root",
+        "description": "Certificate is signed by an untrusted root"
+      },
+      {
+        "url": "https://revoked.badssl.com",
+        "base_name": "revoked",
+        "description": "Certificate has been revoked"
+      },
+      {
+        "url": "https://pinning-test.badssl.com",
+        "base_name": "pinning-test",
+        "description": "Tests HTTP Public Key Pinning (HPKP)"
+      },
+      {
+        "url": "https://no-common-name.badssl.com",
+        "base_name": "no-common-name",
+        "description": "Certificate doesn't contain a common name"
+      },
+      {
+        "url": "https://no-subject.badssl.com",
+        "base_name": "no-subject",
+        "description": "Certificate doesn't contain a subject"
+      },
+      {
+        "url": "https://badssl.com",
+        "base_name": "badssl.com",
+        "description": "A valid certificate"
+      },
+      {
+        "url": "https://sha1-intermediate.badssl.com",
+        "base_name": "sha1-intermediate",
+        "description": "Certificate chain contains a SHA-1 intermediate"
+      },
+      {
+        "url": "https://mixed-content.badssl.com",
+        "base_name": "mixed-content",
+        "description": "Tests for mixed HTTP/HTTPS content"
+      },
+      {
+        "url": "https://superfish.badssl.com",
+        "base_name": "superfish",
+        "description": "Tests for the presence of the Superfish adware root certificate"
+      },
+      {
+        "url": "https://edellroot.badssl.com",
+        "base_name": "edellroot",
+        "description": "Tests for the presence of the eDellRoot certificate"
+      },
+      {
+        "url": "https://dsdtestprovider.badssl.com",
+        "base_name": "dsdtestprovider",
+        "description": "Tests for the presence of the DSDTestProvider certificate"
+      },
+      {
+        "url": "https://cbc.badssl.com",
+        "base_name": "cbc",
+        "description": "Tests for the use of CBC ciphers, which are now considered insecure"
+      },
+      {
+        "url": "https://rc4.badssl.com",
+        "base_name": "rc4",
+        "description": "Tests for the use of RC4 ciphers, which are also insecure"
+      },
+      {
+        "url": "https://des3.badssl.com",
+        "base_name": "des3",
+        "description": "Tests for the use of 3DES (Triple DES) ciphers, which are considered weak"
+      },
+      {
+        "url": "https://null.badssl.com",
+        "base_name": "null",
+        "description": "Tests for the use of null ciphers, which provide no encryption"
+      },
+      {
+        "url": "https://export.badssl.com",
+        "base_name": "export",
+        "description": "Tests for the use of weak 40-bit and 56-bit export-grade ciphers"
+      },
+      {
+        "url": "https://dh480.badssl.com",
+        "base_name": "dh480",
+        "description": "Tests for the use of weak 480-bit DH parameters"
+      },
+      {
+        "url": "https://dh512.badssl.com",
+        "base_name": "dh512",
+        "description": "Tests for the use of weak 512-bit DH parameters"
+      },
+      {
+        "url": "https://dh1024.badssl.com",
+        "base_name": "dh1024",
+        "description": "Tests for the use of weak 1024-bit DH parameters"
+      },
+      {
+        "url": "https://null.badssl.com",
+        "base_name": "null",
+        "description": "Tests for the use of null ciphers, which provide no encryption"
+      },
+      {
+        "url": "https://an-invalid-sni.badssl.com",
+        "base_name": "invalid-sni",
+        "description": "Tests for the use of an invalid Server Name Indication (SNI)"
+      },
+      {
+        "url": "https://client-initiated-renegotiation.badssl.com",
+        "base_name": "client-renegotiation",
+        "description": "Tests for client-initiated renegotiation, which can be used in attacks"
+      },
+      {
+        "url": "https://tls-v1-2.badssl.com:1012",
+        "base_name": "tls-v1-2",
+        "description": "Tests for support of TLS 1.2"
+      },
+      {
+        "url": "https://tls-v1-1.badssl.com:1011",
+        "base_name": "tls-v1-1",
+        "description": "Tests for support of TLS 1.1"
+      },
+      {
+        "url": "https://tls-v1.badssl.com:1010",
+        "base_name": "tls-v1",
+        "description": "Tests for support of TLS 1.0"
+      }
+]
