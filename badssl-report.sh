@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 function run_tests(){
-    json_file="badssl-endpoints.json"
+    json_file="$DIR/badssl-endpoints.json"
     json_file_alternative_url="https://raw.githubusercontent.com/hareldev/badssl-report/main/badssl-endpoints.json"
     if [[ -f "$json_file" ]]; then
         file_content=$(cat $json_file)
