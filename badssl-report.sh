@@ -17,7 +17,6 @@ function run_tests(){
         echo "${row}" | base64 --decode | jq -r "${1}"
         }
         
-        # OPTIONAL
         # Set each property of the row to a variable
         url=$(_jq '.url')
         base_name=$(_jq '.base_name')
